@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Login e Registro </title>
+<link rel="shortcut icon" href="IMG-20250616-WA0007-removebg-preview.png" type="image/x-icon">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f0f4f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      display: flex;
+      gap: 40px;
+      justify-content: space-around;
+      padding: 20px;
+    }
+    .form-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      flex: 1;
+    }
+    h2 {
+      text-align: center;
+      color: #1976d2;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    label {
+      font-weight: bold;
+      color: #333;
+    }
+    input {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+    button {
+      background: #1976d2;
+      color: white;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    button:hover {
+      background: #125ea6;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Login -->
+    <div class="form-box">
+      <h2>Login da Empresa</h2>
+      <form>
+        <label for="email-login">Email</label>
+        <input type="email" id="email-login" name="email-login" placeholder="empresa@exemplo.com" required>
+
+        <label for="senha-login">Senha</label>
+        <input type="password" id="senha-login" name="senha-login" placeholder="Digite sua senha" required>
+
+        <button type="submit">Entrar</button>
+      </form>
+    </div>
+
+    <!-- Registro -->
+    <div class="form-box">
+      <h2>Registrar Empresa</h2>
+      <form>
+        <label for="nome-empresa">Nome da Empresa</label>
+        <input type="text" id="nome-empresa" name="nome-empresa" placeholder="Nome da clínica ou hospital" required>
+
+        <label for="email-registro">Email</label>
+        <input type="email" id="email-registro" name="email-registro" placeholder="empresa@exemplo.com" required>
+
+        <label for="senha-registro">Senha</label>
+        <input type="password" id="senha-registro" name="senha-registro" placeholder="Crie uma senha" required>
+
+        <label for="confirmar-senha">Confirmar Senha</label>
+        <input type="password" id="confirmar-senha" name="confirmar-senha" placeholder="Confirme sua senha" required>
+
+        <button type="submit">Registrar</button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

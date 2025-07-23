@@ -1,0 +1,416 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-image:url(img_home/03.png);
+    background-position: center;
+background-size: cover;
+background-repeat:no-repeat ;
+
+        
+}
+
+
+/* Header */
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+   
+}
+
+.menu-mobily div{
+ background-color: #fff;
+ height:3px ;
+ margin: 10px 0;
+}
+
+
+.menu-mobily.line-menu-mobily-1{
+   width: 30px;
+
+}
+.menu-mobily.line-menu-mobily-2{
+    width: 20px;
+}
+
+ .cabecalho-link ::after{
+    content: " ";
+    width: 0%;
+    height: 2px;
+    background-color:#ffffff;
+    position: absolute;
+    bottom: -5px ;
+    left: 0;
+    transition: all 0.3s ease;
+    
+}
+    .cabecalho-link:hover::after{
+        width: 100%;
+
+    }
+
+
+.cabecalho img {
+    max-width: 100px;
+}
+
+.cabecalho nav {
+    display: flex;
+}
+/* alteração delinks,home etc*/
+.cabecalho nav a {
+    color: rgb(0, 0, 0);
+    font-size:  20px;
+    text-decoration: none;
+    margin-left: 30px;
+}
+
+.cabecalho-link {
+    text-decoration: none; /* Removendo sublinhado dos links */
+    color: rgb(255, 255, 255);
+    position: relative;
+}
+
+/* Main */
+.principal {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px;
+    margin: auto;
+
+}
+
+.text-content {
+    max-width: 50%;
+    margin-right: 110px;
+}
+
+.principal1 {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 60px;
+}
+
+.principal2 {
+    font-size: 24px;
+    color: rgb(255, 255, 255) ;
+    margin-bottom: 20px;
+    padding: 20px;
+    text-align: justify;
+    max-width: 600px;
+    margin-right: 200px;
+}
+
+.principal3 {
+    max-width: 50%;
+    padding: 10px;
+    border-radius: 30px;
+    width: 400px;
+    height: 300px;
+}
+
+/* Buttons */
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+}
+.custom-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    width: 140px;
+    border: none;
+    border-radius: 25px;
+    color: rgb(240, 230, 230);
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    text-decoration: none; /* pa tra kel sublinhado  */
+    font-size: 16px; /* kela ka stab mi ki acrescenta  */
+}
+/* original 
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    width: 140px;
+    border: none;
+    border-radius: 25px;
+    color: red;
+    background-color: rgb(65, 65, 73);
+    cursor: pointer;
+}
+
+
+so um declara class custom antes de buttom
+button img {
+    margin-left: 10px;
+    width: 24px;
+    height: 23px;
+}
+*/
+
+.custom-button img {
+    margin-left: 10px;
+    width: 24px;
+    height: 23px;
+}
+/* brinde kkkk */
+.custom-button:hover {
+    background-color: rgba(39, 196, 86, 0.726); /* Efeito ao passar o mouse */
+}
+
+/* Footer */
+.titulo {
+    padding-bottom: 20px;
+
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+}
+
+.rodape {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+   
+}
+
+.email, .local, .numero {
+    width: 50px;
+    height: 50px;
+}
+
+.descricao {
+    margin-right: 100px;
+    font-size: 24px;
+}
+
+/* Responsividade */
+@media (max-width: 700px) {
+    
+      
+      
+        
+
+        
+    
+    
+    .principal {
+        flex-direction: column;
+        text-align: left;
+        width: 100vh;
+        height: 100vh;
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    .text-content, .principal3,.principal2 {
+        max-width: 100%;
+    }
+
+    .principal2 {
+    
+        padding-right: 150px;
+        text-align:start;
+        margin: 0;
+        font-size: 30px;
+    }
+    .rodape {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+    .descricao{
+    margin: 0;
+        padding: 10px;
+    }
+    .principal1{
+       
+        margin: auto;
+    }
+}
+.hidden {
+    display: none;
+}
+
+/* Ícone do Chatbot */
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #2ecc71;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    font-size: 24px;
+}
+
+/* Container do Chatbot */
+.chatbot-container {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 320px;
+    max-height: 500px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+/* Ocultar inicialmente */
+.hidden {
+    display: none;
+}
+
+/* Header do chatbot */
+.chat-header {
+    background-color: #2ecc71;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Indicador de status */
+.status-indicator {
+    display: flex;
+    align-items: center;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    background-color: limegreen;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* Mensagens */
+.chat-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+/* Mensagens do usuário e bot */
+.message {
+    margin-bottom: 10px;
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 90%;
+}
+
+.message.user {
+    background-color: #e0f7fa;
+    text-align: right;
+}
+
+.message.bot {
+    background-color: #f1f1f1;
+    text-align: left;
+}
+
+/* Controles */
+.chat-controls {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    background-color: #fafafa;
+}
+
+.faq-select {
+    width: 100%;
+    margin-bottom: 8px;
+    padding: 5px;
+}
+
+.message-input-container {
+    display: flex;
+}
+
+.message-input {
+    flex: 1;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.send-button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    margin-left: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Botão fechar */
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+/* Estilo para a imagem do chatbot como logo */
+#chatbot-icon {
+    width: 70px;
+    height: 70px;
+    background-color: white;
+    border: 2px solid #0fa958;
+    border-radius: 50%; /* Deixa o botão circular */
+    box-shadow: 0 0 10px rgba(15, 169, 88, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+#chatbot-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Garante que a imagem também fique circular */
+    object-fit: cover; /* Preenche sem distorcer */
+    box-sizing: border-box;
+    padding: 5px;
+    transition: transform 0.3s ease;
+}
+
+#chatbot-icon:hover img {
+    transform: scale(1.05);
+}

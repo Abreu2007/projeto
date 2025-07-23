@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="This website is a Portfolio of a Technology professional">
+  <title>EcoSaúde</title>
+  <link rel="stylesheet" href="home.css">
+  <link rel="shortcut icon" href="img/IMG-20250616-WA0007-removebg-preview.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    /* Estilos adicionados diretamente */
+
+    .chatbot-container.slide-in {
+      animation: slideInFromBottom 0.5s ease-out;
+    }
+
+    @keyframes slideInFromBottom {
+      from {
+        transform: translateY(40px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="cabecalho">
+    <img src="img/file_00000000d60861f8a0a3205576986d98-removebg-preview.png" alt="Logo">
+    <nav class="cabecalho-link">
+      <a href="#" class="cabecalho-link">Home</a>
+      <a href="Agendar.html" class="cabecalho-link">Agendar</a>
+      <a href="residuos-hospitalares.html" class="cabecalho-link">Resíduos</a>
+      <a href="Serviços/index.html" class="cabecalho-link">Serviços</a>
+      <a href="sobre.html" class="cabecalho-link">Sobre Nós</a>
+    </nav>
+    <div class="menu-mobily" id="menu-mobily">
+      <div class="line-menu-mobily-1"></div>
+      <div class="line-menu-mobily-2"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="principal">
+      <div class="text-content">
+        <h1 class="principal1">Welcome!</h1>
+        <h2 class="principal2">Olá, bem-vindo ao site de tratamento de lixo e resíduos hospitalares e de clínicas em Cabo Verde.</h2>
+
+        <div class="button-container">
+          <a href="sobre.html" class="custom-button">Read More</a>
+          <a href="#" class="custom-button" id="btn-letstalk">Let's Talk <img class="foto" src="Portifolio/direct.png" alt=""></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Âncora para scroll suave -->
+  <div id="chat-anchor" style="margin-top: 100px;"></div>
+
+  <!-- ÍCONE DO CHATBOT -->
+  <div id="chatbot-icon" class="chatbot-icon" onclick="toggleChat()">
+    <img src="img_home/chatboot.png" alt="Chatbot" style="width: 40px; height: 40px;">
+  </div>
+
+  <!-- CHATBOT -->
+  <div id="chatbot-container" class="chatbot-container hidden">
+    <header class="chat-header">
+      <h1><i class="fas fa-robot"></i> Suporte Online</h1>
+      <div class="status-indicator">
+        <span class="status-dot online"></span>
+        <span class="status-text">Online</span>
+      </div>
+      <button class="close-btn" onclick="toggleChat()">&times;</button>
+    </header>
+
+    <div id="chat" class="chat-messages"></div>
+
+    <div class="chat-controls">
+      <select id="faq-select" class="faq-select">
+        <option value="">📌 Perguntas Frequentes</option>
+        <option value="Quais são os horários de atendimento?">Quais são os horários de atendimento?</option>
+        <option value="Como faço um pedido?">Como faço um pedido?</option>
+        <option value="Preciso de ajuda com um problema">Preciso de ajuda com um problema</option>
+      </select>
+
+      <div class="message-input-container">
+        <input type="text" id="user-input" placeholder="Escreva aqui sua dúvida..." class="message-input"
+          onkeypress="if(event.key === 'Enter') sendMsg()">
+        <button onclick="sendMsg()" class="send-button">
+          <i class="fas fa-paper-plane"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <h1 class="titulo">Contact Me</h1>
+    <section class="rodape">
+      <img class="email" src="Portifolio/email.png" alt="Email">
+      <h1 class="descricao">EcoSaúdegmail@gmail.com</h1>
+      <img class="local" src="Portifolio/place-localizer.png" alt="Local">
+      <h1 class="descricao">Cabo Verde</h1>
+      <img class="numero" src="Portifolio/smartphone.png" alt="Number">
+      <h1 class="descricao">(+238) 9733302</h1>
+    </section>
+  </footer>
+
+  <script>
+    // Alternar chat ao clicar no ícone
+    function toggleChat() {
+      const chatbot = document.getElementById("chatbot-container");
+      chatbot.classList.toggle("hidden");
+
+      if (!chatbot.classList.contains("hidden")) {
+        chatbot.classList.add("slide-in");
+      } else {
+        chatbot.classList.remove("slide-in");
+      }
+    }
+
+    // Botão "Let's Talk" abre o chat com scroll
+    document.getElementById("btn-letstalk").addEventListener("click", function (e) {
+      e.preventDefault();
+      const chatbot = document.getElementById("chatbot-container");
+      chatbot.classList.remove("hidden");
+      chatbot.classList.add("slide-in");
+
+      document.getElementById("chat-anchor").scrollIntoView({
+        behavior: "smooth"
+      });
+    });
+
+    // Enviar mensagem
+    function sendMsg() {
+      const input = document.getElementById("user-input");
+      const msg = input.value.trim();
+      if (msg === "") return;
+
+      appendMessage("Você", msg, "user");
+      input.value = "";
+      setTimeout(() => respondToUser(msg), 500);
+    }
+
+    // Adicionar mensagem ao chat
+    function appendMessage(sender, text, type) {
+      const chat = document.getElementById("chat");
+      const message = document.createElement("div");
+      message.classList.add("message", type);
+      message.innerHTML = `<strong>${sender}:</strong> ${text}`;
+      chat.appendChild(message);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    // Resposta automática do chatbot
+    function respondToUser(msg) {
+      let response = "Desculpe, não entendi sua pergunta. 😕";
+      msg = msg.toLowerCase();
+
+      if (msg.includes("horário") || msg.includes("funciona")) {
+        response = "Nosso horário de atendimento é de segunda a sexta, das 8h às 18h. ⏰";
+      } else if (msg.includes("pedido") || msg.includes("encomenda")) {
+        response = "Para fazer um pedido, acesse a aba 'Produtos' e clique em 'Comprar'. 🛒";
+      } else if (msg.includes("ajuda") || msg.includes("problema")) {
+        response = "Nossa equipe está pronta para ajudar! Por favor, descreva seu problema. 💬";
+      }
+
+      appendMessage("Chatbot", response, "bot");
+    }
+
+    // Perguntas Frequentes automáticas
+    document.getElementById("faq-select").addEventListener("change", function () {
+      const input = document.getElementById("user-input");
+      if (this.value) {
+        input.value = this.value;
+        sendMsg();
+        this.selectedIndex = 0;
+      }
+    });
+  </script>
+
+</body>
+</html>

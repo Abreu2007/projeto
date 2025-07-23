@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendar Serviço | EcoSaúde</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      background-color: #27ae60;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .extra-section {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Agendar Serviço</h2>
+    <form id="formAgendamento">
+      <label for="nome">Nome da Empresa / Pessoa</label>
+      <input type="text" id="nome" required>
+
+      <label for="contato">Telefone</label>
+      <input type="tel" id="contato" required>
+
+      <label for="data">Data</label>
+      <input type="date" id="data" required>
+
+      <label for="hora">Hora</label>
+      <input type="time" id="hora" required>
+
+      <label for="servico">Tipo de Serviço</label>
+      <select id="servico" required>
+        <option value="">-- Selecione --</option>
+        <option value="recolha">Recolha</option>
+        <option value="formacao">Formação</option>
+        <option value="consultoria">Consultoria</option>
+        <option value="desinfeccao">Desinfeção</option>
+        <option value="separacao">Separação</option>
+        <option value="tratamento">Tratamento</option>
+      </select>
+
+      <!-- Recolha -->
+      <div id="recolha" class="extra-section">
+        <label for="tipo-residuo">Tipo de Resíduo</label>
+        <select id="tipo-residuo">
+          <option value="infectante">Infectante</option>
+          <option value="quimico">Químico</option>
+          <option value="perfurante">Perfurocortante</option>
+          <option value="comum">Comum</option>
+        </select>
+        <label for="descricao-recolha">Descrição dos resíduos</label>
+        <textarea id="descricao-recolha"></textarea>
+      </div>
+
+      <!-- Formação -->
+      <div id="formacao" class="extra-section">
+        <label for="area">Área da Formação</label>
+        <input type="text" id="area">
+        <label for="participantes">Nº de Participantes</label>
+        <input type="number" id="participantes" min="1">
+      </div>
+
+      <!-- Consultoria -->
+      <div id="consultoria" class="extra-section">
+        <label for="tipo-consultoria">Tipo de Consultoria</label>
+        <input type="text" id="tipo-consultoria">
+        <label for="descricao-consultoria">Situação/Problema</label>
+        <textarea id="descricao-consultoria"></textarea>
+      </div>
+
+      <!-- Desinfeção -->
+      <div id="desinfeccao" class="extra-section">
+        <label for="espaco">Tipo de Espaço</label>
+        <input type="text" id="espaco">
+        <label for="urgencia">Urgência</label>
+        <select id="urgencia">
+          <option value="normal">Normal</option>
+          <option value="urgente">Urgente</option>
+        </select>
+      </div>
+
+      <!-- Separação -->
+      <div id="separacao" class="extra-section">
+        <label for="tipo-separacao">Tipo de Resíduo</label>
+<select id="tipo-separacao">
+  <option value="">-- Selecione --</option>
+  <option value="comum">Resíduo Misto</option>
+  <option value="comum">Resíduo Comum</option>
+  <option value="infectante">Resíduo Infectante</option>
+  <option value="quimico">Resíduo Químico</option>
+  <option value="perfurocortante">Resíduo Perfurocortante</option>
+  <option value="radioativo">Resíduo Radioativo</option>
+  <option value="farmaceutico">Resíduo Farmacêutico</option>
+  <option value="reciclavel">Resíduo Reciclável</option>
+</select>
+
+        <label for="precisa-recipient">Precisa de Recipientes?</label>
+        <select id="precisa-recipient">
+          <option value="sim">Sim</option>
+          <option value="nao">Não</option>
+        </select>
+      </div>
+
+      <!-- Tratamento -->
+      <div id="tratamento" class="extra-section">
+        <label for="tipo-tratamento">Tipo de Resíduo</label>
+        <input type="text" id="tipo-tratamento">
+        <label for="metodo">Método Preferido</label>
+        <input type="text" id="metodo">
+      </div>
+
+      <button type="submit">Agendar</button>
+    </form>
+  </div>
+
+  <script>
+    const servico = document.getElementById("servico");
+    const sections = document.querySelectorAll(".extra-section");
+
+    servico.addEventListener("change", function () {
+      sections.forEach(sec => sec.style.display = "none");
+      const selected = this.value;
+      const section = document.getElementById(selected);
+      if (section) section.style.display = "block";
+    });
+
+    document.getElementById("formAgendamento").addEventListener("submit", function (e) {
+      e.preventDefault();
+      alert("Agendamento enviado com sucesso!");
+      this.reset();
+      sections.forEach(sec => sec.style.display = "none");
+    });
+  </script>
+</body>
+</html>

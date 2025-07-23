@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f6f9f8;
+    color: #333;
+}
+
+.cabecalho {
+    background-color: #0fa958;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.cabecalho nav {
+    margin-top: 10px;
+}
+
+.cabecalho nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.cabecalho nav a:hover {
+    color: #dfffe8;
+}
+
+.servicos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.servico {
+    background: white;
+    border-left: 5px solid #0fa958;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.servico:hover {
+    transform: translateY(-5px);
+}
+
+.servico h2 {
+    color: #0fa958;
+    margin-bottom: 10px;
+}
+
+.rodape {
+    background-color: #0fa958;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
